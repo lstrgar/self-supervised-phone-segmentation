@@ -2,14 +2,32 @@
 
 ## Usage
 
+### Clone This Repository
+
+`git clone git@github.com:lstrgar/self-supervised-phone-segmentation.git phone-seg`
+
+Now checkout the correct fairseq submodule branch: 
+
+```
+cd phone-seg/fairseq
+git checkout lvs
+cd ..
+```
+
 ### Obtain Pre-trained Model Checkpoints
 wav2vec2.0 and HuBERT checkpoints are available via fairseq at the following links. Download these models and place in a new folder titled `checkpoints`. 
 
-https://github.com/facebookresearch/fairseq/blob/main/examples/wav2vec/README.md
-https://dl.fbaipublicfiles.com/fairseq/wav2vec/wav2vec_small.pt
+***wav2vec2.0***
+- [Follow this link](https://github.com/facebookresearch/fairseq/blob/main/examples/wav2vec/README.md#pre-trained-models)
+- Select the download link where the "Model" column reads "Wav2Vec 2.0 Base", the "Finetuning" column reads "No finetuning", and the "Dataset" is "Librispeech"
+- For reference, we downloaded these models from this README page at git hash `edb25c6`
+- If for some reason the link dissappears you may also try downloading the checkpoint directly from [here](https://dl.fbaipublicfiles.com/fairseq/wav2vec/wav2vec_small.pt)
 
-https://github.com/facebookresearch/fairseq/blob/main/examples/hubert/README.md
-https://dl.fbaipublicfiles.com/hubert/hubert_base_ls960.pt
+***HuBERT***
+- [Follow this link](https://github.com/facebookresearch/fairseq/blob/main/examples/hubert/README.md#pre-trained-and-fine-tuned-asr-models)
+- Select the download link where the "Model" column reads "HuBERT Base (~95M params)", the "Finetuning Dataset" column reads "No finetuning (Pretrained Model)", and the "Pretraining Data" is "	Librispeech 960 hr"
+- For reference, we downloaded these models from this README page at git hash `4a7835b`
+- If for some reason the link dissappears you may also try downloading the checkpoint directly from [here](https://dl.fbaipublicfiles.com/hubert/hubert_base_ls960.pt)
 
 ### Obtain and Process TIMIT and/or Buckeye Speech Corpus
 
