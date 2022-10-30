@@ -1,0 +1,4 @@
+conda python==3.9.5
+! pip install ./local-fairseq
+boltons==21.0.0
+pip install tensorboardX

@@ -1,0 +1,27 @@
+# NOTE: do not name me "config.yml" to avoid conflict with fairseq defaults
+
+hydra:
+  run:
+    dir: ./outputs/${now:%Y-%m-%d}/${exp_name}-${now:%H-%M-%S}
+exp_name: null
+buckeye_path: /home/lvs/data/buckeye
+timit_path: /home/lvs/data/timit
+data: timit
+val_ratio: 0.1  # Ratio of training set to use for timit validation
+train_percent: 1.0 # Percentage of training data to use 
+num_workers: 5
+base_ckpt_path: /home/lvs/code/segment-public/checkpoints/w2v2_small_lib.pt
+seed: 0
+mode: readout
+label_dist_threshold: 1 # 20ms tolerance
+print_interval: 10 # Train batches to print loss stats
+val_interval: 50 # Train batches to eval step
+optim_type: adam
+beta1: 0.9
+beta2: 0.999
+momentum: 0.9
+weight_decay: 0
+pos_weight: 1.0 # BCE loss weighting
+epochs: 50
+batch_size: 16
+lr: 0.001

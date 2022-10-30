@@ -1,0 +1,4 @@
+[submodule "fairseq"]
+	path = fairseq
+	url = git@github.com:lstrgar/fairseq.git
+	branch = lvs
