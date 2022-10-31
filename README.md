@@ -40,6 +40,8 @@ wav2vec2.0 and HuBERT checkpoints are available via fairseq at the following lin
 
 ### Obtain and Process TIMIT and/or Buckeye Speech Corpus
 
+TIMIT is available [here](https://catalog.ldc.upenn.edu/LDC93S1) and Buckeye [here](https://buckeyecorpus.osu.edu/). 
+
 Once the data has been obtained it must be stored in disk an a fashion that can be read by the provided dataloader, the core of which is borrowed from Kreuk Et al. (https://github.com/felixkreuk/UnsupSeg). See the Data Structure section of this repo for specifics, or simply use the provided `utils/make_timit.py` and `utils/make_buckeye.py` to split and organize the data exactly how we did it. Note: both of these scripts we also credit to Kreuk Et al., save a few minor changes. 
 
 You can run `make_timit.py` and `make_buckeye.py` as follows:
