@@ -4,7 +4,7 @@
 
 ### Clone This Repository
 
-`git clone git@github.com:lstrgar/self-supervised-phone-segmentation.git phone-seg`
+`git clone --recurse-submodules git@github.com:lstrgar/self-supervised-phone-segmentation.git phone-seg`
 
 Now checkout the correct fairseq submodule branch: 
 
