@@ -42,7 +42,7 @@ wav2vec2.0 and HuBERT checkpoints are available via fairseq at the following lin
 
 TIMIT is available [here](https://catalog.ldc.upenn.edu/LDC93S1) and Buckeye [here](https://buckeyecorpus.osu.edu/). 
 
-Once the data has been obtained it must be stored in disk an a fashion that can be read by the provided dataloader, the core of which is borrowed from [Kreuk Et al.](https://github.com/felixkreuk/UnsupSeg) See the Data Structure section of this repo for specifics, or simply use the provided `utils/make_timit.py` and `utils/make_buckeye.py` to split and organize the data exactly how we did it. Note: both of these scripts we also credit to Kreuk Et al., save a few minor changes. 
+Once the data has been obtained it must be stored in disk an a fashion that can be read by the provided dataloader, the core of which is borrowed from [Kreuk et al](https://github.com/felixkreuk/UnsupSeg). See the Data Structure section of this repo for specifics, or simply use the provided `utils/make_timit.py` and `utils/make_buckeye.py` to split and organize the data exactly how we did it. Both of these scripts we also credit to Kreuk et al, save a handful of minor changes. 
 
 You can run `make_timit.py` and `make_buckeye.py` as follows:
 
@@ -50,7 +50,7 @@ You can run `make_timit.py` and `make_buckeye.py` as follows:
 
 `python utils/make_buckeye.py --spkr --source /path/to/original/buckeye --target /path/to/output/buckeye --min_phonemes 20 --max_phonemes 50`
 
-Note, here we do not provide the infrastructure to train these models using the pseudo-labels derived from a trained unsupervised model; however, the core implementation can be easily extended to train with alternate label supervision so long as the dataloader's interface remains unchanges. For those interested in training such a model, we would direct you to [Kreuk Et al.](https://github.com/felixkreuk/UnsupSeg), where a pretrained unsupervised model can be used to generate pseudo-labels for TIMIT. 
+Note, here we do not provide the infrastructure to train these models using the pseudo-labels derived from a trained unsupervised model; however, the core implementation can be easily extended to train with alternate label supervision so long as the dataloader's interface remains unchanges. For those interested in training such a model, we would direct you to [Kreuk et al](https://github.com/felixkreuk/UnsupSeg), where a pretrained unsupervised model can be used to generate pseudo-labels for TIMIT. 
 
 ### Update Configuration YAML
 
@@ -86,4 +86,4 @@ The config `seed` attribute can be changed to control random shuffling and initi
 
 `train_percent` indicates the fraction of the training set to use. Some may be interested in observing model / training data efficiency by sweeping over this attribute. Sweeps can be easily accomodated using hydra's multi-run command line option. For more see the hydra docs. 
 
-As previously mentioned, several utility scripts in this codebase were borrowed from [Kreuk et Al](https://github.com/felixkreuk/UnsupSeg). We thank these authors for their open source contributions. 
+As previously mentioned, several utility scripts in this codebase were borrowed from [Kreuk et al](https://github.com/felixkreuk/UnsupSeg). We thank these authors for their open source contributions. 
