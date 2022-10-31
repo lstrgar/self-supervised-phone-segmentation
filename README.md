@@ -65,6 +65,39 @@ You can run `make_timit.py` and `make_buckeye.py` as follows:
 
 `python utils/make_buckeye.py --spkr --source /path/to/original/buckeye --target /path/to/output/buckeye --min_phonemes 20 --max_phonemes 50`
 
+You can expect the output of `make_buckeye.py` to look something like this:
+
+```
+  9%|████████████▉                                                                                                                                  | 23/255 [03:48<33:14,  8.60s/it]last phone end: 599.192625
+len of wav: 568.739
+skipping ../data/buckeye-raw/s19/s1901b.wav
+ 35%|██████████████████████████████████████████████████▍                                                                                            | 90/255 [14:03<20:33,  7.48s/it]last phone end: 570.44755
+len of wav: 560.691
+skipping ../data/buckeye-raw/s40/s4002a.wav
+ 42%|██████████████████████████████████████████████████████████▏                                                                                 | 106/255 [18:09<1:02:35, 25.20s/it]last phone end: 598.871688
+len of wav: 574.51
+skipping ../data/buckeye-raw/s29/s2902b.wav
+ 51%|████████████████████████████████████████████████████████████████████████▉                                                                     | 131/255 [23:54<32:21, 15.66s/it]last phone end: 327.297346
+len of wav: 324.1
+skipping ../data/buckeye-raw/s36/s3601b.wav
+ 59%|████████████████████████████████████████████████████████████████████████████████████                                                          | 151/255 [27:50<26:57, 15.56s/it]last phone end: 568.013937
+len of wav: 564.609
+skipping ../data/buckeye-raw/s27/s2702b.wav
+ 92%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊           | 235/255 [37:30<02:31,  7.56s/it]last phone end: 600.991312
+len of wav: 600.0000625
+skipping ../data/buckeye-raw/s10/s1003a.wav
+ 98%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊  | 251/255 [38:15<00:05,  1.37s/it]loading ../data/buckeye-raw/s35/s3504a.wav failed!
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 255/255 [38:33<00:00,  9.07s/it]
+10264 items
+avg len: 32.117108339828526
+min len: 22
+max len: 50
+avg sec: 2.696509640003895
+min sec: 1.0300000000000296
+max sec: 8.28861599999999
+7.688048595833328 hours
+```
+
 Note, here we do not provide the infrastructure to train these models using the pseudo-labels derived from a trained unsupervised model; however, the core implementation can be easily extended to train with alternate label supervision so long as the dataloader's interface remains unchanged. For those interested in training such a model, we would direct you to [Kreuk et al](https://github.com/felixkreuk/UnsupSeg), where a pretrained unsupervised model can be used to generate pseudo-labels for TIMIT. 
 
 ### Update Configuration YAML
