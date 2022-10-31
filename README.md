@@ -44,13 +44,28 @@ TIMIT is available [here](https://catalog.ldc.upenn.edu/LDC93S1) and Buckeye [he
 
 Once the data has been obtained it must be stored in disk an a fashion that can be read by the provided dataloader, the core of which is borrowed from [Kreuk et al](https://github.com/felixkreuk/UnsupSeg). See the Data Structure section of this repo for specifics, or simply use the provided `utils/make_timit.py` and `utils/make_buckeye.py` to split and organize the data exactly how we did it. Both of these scripts we also credit to Kreuk et al, save a handful of minor changes. 
 
+***Before*** running `make_buckeye.py` the standard zip files must be unpacked such that the directory structure is preserved. Specifically, you may download each of the speaker zips independently and then recursively unzip each zip file to create a `buckeye` folder with the following structure: 
+
+```
+- buckeye
+  - s01
+    - s0101a.log
+    - s0101a.phones
+    - s0101a.txt
+    - s0101a.wav
+    - s0101a.words
+    - ...
+  - s02
+  ...
+```
+
 You can run `make_timit.py` and `make_buckeye.py` as follows:
 
 `python utils/make_timit.py --inpath /path/to/original/timit --outpath /path/to/output/timit`
 
 `python utils/make_buckeye.py --spkr --source /path/to/original/buckeye --target /path/to/output/buckeye --min_phonemes 20 --max_phonemes 50`
 
-Note, here we do not provide the infrastructure to train these models using the pseudo-labels derived from a trained unsupervised model; however, the core implementation can be easily extended to train with alternate label supervision so long as the dataloader's interface remains unchanges. For those interested in training such a model, we would direct you to [Kreuk et al](https://github.com/felixkreuk/UnsupSeg), where a pretrained unsupervised model can be used to generate pseudo-labels for TIMIT. 
+Note, here we do not provide the infrastructure to train these models using the pseudo-labels derived from a trained unsupervised model; however, the core implementation can be easily extended to train with alternate label supervision so long as the dataloader's interface remains unchanged. For those interested in training such a model, we would direct you to [Kreuk et al](https://github.com/felixkreuk/UnsupSeg), where a pretrained unsupervised model can be used to generate pseudo-labels for TIMIT. 
 
 ### Update Configuration YAML
 
