@@ -144,9 +144,9 @@ Note, here we do not provide the infrastructure to train these models using the 
 
 The following fields will need to be updated to reflect local paths on your machine:
 
-- timit_path
-- buckeye_path
-- base_ckpt_path
+- `timit_path`
+- `buckeye_path`
+- `base_ckpt_path`
 
 You may also want to experiment with the `num_workers` attribute depending on your hardware. 
 
@@ -162,9 +162,9 @@ To finetune the whole pre-trained model and simply project final features with a
 
 Invoking `run.py` will train a model from scratch for 50 epochs while printing training stats every 10 batches and running model validation every 50 batches. Print preferences can be changed in the config with attributes `print_interval` and `val_interval`. `epochs` can also be modified if desired.
 
-During training models are saved to disk if they so-far demonstrate the best R-Value on the validation set. After training is complete, the best model is loaded from disk and tested with the testing set. Performance metrics in the harsh and lenient evaluation scheme are logged to standard out. 
+During training models are saved to disk if they demonstrate the best seen R-Value on the validation set. After training is complete, the best model is loaded from disk and tested with the testing set. Performance metrics in the harsh and lenient evaluation scheme are logged to standard output. 
 
-Lastly, every invocation of `run.py` will create an output folder under `outputs/datestamp/{exp_name}_timestamp`, which is where model checkpoints are saved along with the whole runtime config and a run.log. Everything logged to standard output during training will also be logged to the run.log file. 
+Every invocation of `run.py` will create an output folder under `outputs/datestamp/{exp_name}_timestamp`, which is where model checkpoints are saved along with the whole runtime config and a `run.log`. Everything logged to standard output during training will also be logged to the `run.log` file. 
 
 ### Additional
 
@@ -172,6 +172,6 @@ This codebase assumes CUDA availability.
 
 The config `seed` attribute can be changed to control random shuffling and initialization. 
 
-`train_percent` indicates the fraction of the training set to use. Some may be interested in observing model / training data efficiency by sweeping over this attribute. Sweeps can be easily accomodated using hydra's multi-run command line option. For more see the hydra docs. 
+`train_percent` indicates the fraction of the training set to use. Some may be interested in measuring model / training data efficiency by sweeping over values of this attribute. Sweeps can be easily accommodated using hydra's multi-run command line option. For more see the hydra docs. 
 
 As previously mentioned, several utility scripts in this codebase were borrowed from [Kreuk et al](https://github.com/felixkreuk/UnsupSeg). We thank these authors for their open source contributions. 
