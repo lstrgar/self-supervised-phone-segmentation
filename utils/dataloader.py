@@ -92,7 +92,7 @@ def get_dloaders(cfg, layers, logger, g=None):
         shuffle=False, 
         num_workers=cfg.num_workers,
         worker_init_fn=seed_worker,
-        generator=g if cfg.deterministic else None,
+        generator=g,
         collate_fn=collate_fn_padd
     )
     return trainloader, valloader, testloader
