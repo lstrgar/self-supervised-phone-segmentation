@@ -78,7 +78,7 @@ Whereas the new directory created by `make_timit.py` will look like this:
 
 Depending on the format of the TIMIT `.WAV` files, you may need to read the data and overwrite them using a standard encoding. We used [soundfile](https://pysoundfile.readthedocs.io/en/latest/) for these purposes. 
 
-***Before*** running `make_buckeye.py` the standard zip files must be unpacked such that the directory structure is preserved. Specifically, you may download each of the speaker zips independently and then recursively unzip each zip file to create a `buckeye` folder with the following structure: 
+`make_buckeye.py` does more than just restructure the data -- the script splits long audio recordings into shorter segments that can be used for training. ***Before*** running `make_buckeye.py` the standard zip files must be unpacked such that the directory structure is preserved. Specifically, you may download each of the speaker zips independently and then recursively unzip each zip file to create a `buckeye` folder with the following structure: 
 
 ```
 - buckeye
@@ -95,7 +95,7 @@ Depending on the format of the TIMIT `.WAV` files, you may need to read the data
 
 You can run `make_timit.py` and `make_buckeye.py` as follows:
 
-`python utils/make_timit.py --inpath /path/to/original/timit --outpath /path/to/output/timit`
+`python utils/make_timit.py --inpath /path/to/original/timit/data --outpath /path/to/output/timit`
 
 `python utils/make_buckeye.py --spkr --source /path/to/original/buckeye --target /path/to/output/buckeye --min_phonemes 20 --max_phonemes 50`
 
