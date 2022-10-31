@@ -14,6 +14,15 @@ git checkout lvs
 cd ..
 ```
 
+### Setup Environment
+```
+conda create --name phone-seg
+conda activate phone-seg
+conda install python=3.9.5
+pip install ./fairseq
+pip install -r requirements.txt
+```
+
 ### Obtain Pre-trained Model Checkpoints
 wav2vec2.0 and HuBERT checkpoints are available via fairseq at the following links. Download these models and place in a new folder titled `checkpoints`. 
 
