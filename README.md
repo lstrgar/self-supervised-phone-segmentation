@@ -42,7 +42,41 @@ wav2vec2.0 and HuBERT checkpoints are available via fairseq at the following lin
 
 TIMIT is available [here](https://catalog.ldc.upenn.edu/LDC93S1) and Buckeye [here](https://buckeyecorpus.osu.edu/). 
 
-Once the data has been obtained it must be stored in disk an a fashion that can be read by the provided dataloader, the core of which is borrowed from [Kreuk et al](https://github.com/felixkreuk/UnsupSeg). See the Data Structure section of this repo for specifics, or simply use the provided `utils/make_timit.py` and `utils/make_buckeye.py` to split and organize the data exactly how we did it. Both of these scripts we also credit to Kreuk et al, save a handful of minor changes. 
+Once the data has been obtained it must be stored in disk an a fashion that can be read by the provided dataloader, the core of which is borrowed from [Kreuk et al](https://github.com/felixkreuk/UnsupSeg). See the Data Structure section of this repo for specifics, or simply use the provided `utils/make_timit.py` and `utils/make_buckeye.py` to split and organize the data exactly how we did it. Both of these scripts we also credit to Kreuk et al, save several minor changes. 
+
+`make_timit.py` simply renames and restructures the data directories such that paths to audio recordings and their corresponding segmentation label files are flattened. The standard TIMIT download looks something like this: 
+
+```
+- timit
+    - data
+        - TRAIN
+            - DR1
+                - FCJF0
+                    - SA1.PHN
+                    - SA1.TXT
+                    - SA1.WAV
+                    - SA1.WRD
+                ...
+            ...
+        - TEST
+    - PHONCODE.DOC
+    - PROMPTS.TXT
+    - README.DOC
+    ...
+```
+
+Whereas the new directory created by `make_timit.py` will look like this:
+
+```
+- timit
+    - train
+        - DR1_SA1.phn
+        - DR1_SA1.wav
+        ...
+    - train
+```
+
+Depending on the format of the TIMIT `.WAV` files, you may need to read the data and overwrite them using a standard encoding. We used [soundfile](https://pysoundfile.readthedocs.io/en/latest/) for these purposes. 
 
 ***Before*** running `make_buckeye.py` the standard zip files must be unpacked such that the directory structure is preserved. Specifically, you may download each of the speaker zips independently and then recursively unzip each zip file to create a `buckeye` folder with the following structure: 
 
@@ -65,7 +99,13 @@ You can run `make_timit.py` and `make_buckeye.py` as follows:
 
 `python utils/make_buckeye.py --spkr --source /path/to/original/buckeye --target /path/to/output/buckeye --min_phonemes 20 --max_phonemes 50`
 
-You can expect the output of `make_buckeye.py` to look something like this:
+You can expect the output of `make_timit.py` to look like this:
+
+```
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:07<00:00,  3.72s/it]
+```
+
+You can expect the output of `make_buckeye.py` to look like this:
 
 ```
   9%|████████████▉                                                                                                                                  | 23/255 [03:48<33:14,  8.60s/it]last phone end: 599.192625
