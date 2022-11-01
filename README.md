@@ -138,7 +138,7 @@ max sec: 8.28861599999999
 7.688048595833328 hours
 ```
 
-Note, here we do not provide the infrastructure to train these models using the pseudo-labels derived from a trained unsupervised model; however, the core implementation can be easily extended to train with alternate label supervision so long as the dataloader's interface remains unchanged. For those interested in training such a model, we would direct you to [Kreuk et al](https://github.com/felixkreuk/UnsupSeg), where a pretrained unsupervised model can be used to generate pseudo-labels for TIMIT. 
+Note, here we do not provide the infrastructure to train these models using the pseudo-labels derived from a trained unsupervised model; however, the core implementation can be easily extended to train with alternate label supervision so long as the dataloader's interface remains unchanged. For those interested in training such a model, we would direct you to [Kreuk et al](https://github.com/felixkreuk/UnsupSeg), where a pretrained unsupervised model can be used to generate pseudo-labels for TIMIT. When training with pseudo-labels, we advise computing precision and recall metrics of the pseudo-labels with respect to the ground truth data and setting the config attribute `pos_weight` to account precision/recall imbalance. `pos_weight` is multiplicative constant applied to loss computed at ground truth boundary locations. 
 
 ### Update Configuration YAML
 
