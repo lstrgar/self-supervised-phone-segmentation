@@ -28,7 +28,7 @@ def main(inpath, outpath):
                                     tgt_name = os.path.join(outpath, _f.lower(), _ff+'_'+_file)
                                     tgt_name = os.path.splitext(tgt_name)[0]+'.phn'
                                     shutil.copy(src_name, tgt_name)
-                                if _file.endswith('.WAV.wav'): 
+                                if _file.endswith('.WAV'): 
                                     src_name = os.path.join(seg_dir, _file)
                                     tgt_name = os.path.join(outpath, _f.lower(), _ff+'_'+_file)
                                     tgt_name = os.path.splitext(os.path.splitext(tgt_name)[0])[0]+'.wav'
