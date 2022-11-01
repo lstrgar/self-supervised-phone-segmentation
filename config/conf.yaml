@@ -4,13 +4,13 @@ hydra:
   run:
     dir: ./outputs/${now:%Y-%m-%d}/${exp_name}-${now:%H-%M-%S}
 exp_name: null
-buckeye_path: /home/lvs/data/buckeye
-timit_path: /home/lvs/data/timit
+buckeye_path: null
+timit_path: null
 data: timit
 val_ratio: 0.1  # Ratio of training set to use for timit validation
 train_percent: 1.0 # Percentage of training data to use 
 num_workers: 5
-base_ckpt_path: /home/lvs/code/segment-public/checkpoints/w2v2_small_lib.pt
+base_ckpt_path: null
 seed: 0
 mode: readout
 label_dist_threshold: 1 # 20ms tolerance
