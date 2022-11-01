@@ -1,5 +1,25 @@
 # Phoneme Segmentation Using Self-Supervised Speech Models
 
+## Paper
+
+[Phoneme Segmentation Using Self-Supervised Speech Models](**LINK**)
+
+Luke Strgar and David Harwath
+
+Accepted to Spoken Language Technology (SLT) Workshop 2022
+
+### Abstract
+
+We apply transfer learning to the task of phoneme segmenta- tion and demonstrate the utility of representations learned in self-supervised pre-training for the task. Our model extends transformer-style encoders with strategically placed convolu- tions that manipulate features learned in pre-training. Using the TIMIT and Buckeye corpora we train and test the model in the supervised and unsupervised settings. The latter case is accomplished by furnishing a noisy label-set with the predic- tions of a separate model, it having been trained in an unsu- pervised fashion. Results indicate our model eclipses previ- ous state-of-the-art performance in both settings and on both datasets. Finally, following observations during published code review and attempts to reproduce past segmentation re- sults, we find a need to disambiguate the definition and im- plementation of widely-used evaluation metrics. We resolve this ambiguity by delineating two distinct evaluation schemes and describing their nuances.
+
+### Cite
+
+If you find our paper or this code useful, kindly consider citing our work:
+
+```
+**CITATION**
+```
+
 ## Usage
 
 ### Clone This Repository
