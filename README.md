@@ -2,7 +2,7 @@
 
 ## Paper
 
-[Phoneme Segmentation Using Self-Supervised Speech Models](**LINK**)
+[Phoneme Segmentation Using Self-Supervised Speech Models](https://arxiv.org/abs/2211.01461)
 
 Luke Strgar and David Harwath
 
@@ -17,7 +17,14 @@ We apply transfer learning to the task of phoneme segmentation and demonstrate t
 If you find our paper or this code useful, kindly consider citing our work:
 
 ```
-**CITATION**
+@misc{strgar2022phoneme,
+      title={Phoneme Segmentation Using Self-Supervised Speech Models}, 
+      author={Luke Strgar and David Harwath},
+      year={2022},
+      eprint={2211.01461},
+      archivePrefix={arXiv},
+      primaryClass={eess.AS}
+}
 ```
 
 ## Usage
